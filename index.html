@@ -1,1 +1,53 @@
-<button onclick="alert('Welcome!');">Button</button>
+<!DOCTYPE html>
+<html data-theme="light" lang=ms-MY>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <style>
+        *{
+            user-select: none;
+        }
+        p{
+            text-align: justify;
+            line-height: 1.3em;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+  </head>
+  <body onload="onload()">
+      <button class="button has-background-dark has-text-light is-small" onclick="dark()">Dark</button>
+      <button class="button has-background-light has-text-dark is-small" onclick="light()">Light</button>
+  <section class="section">
+      
+    <div class="content is-small">
+      <h1>
+        Selamat datang ke Aplikasi saya!
+      </h1>
+      <p>Saya membina aplikasi ini menggunakan programming language java</p>
+      <p>
+          Ini ialah design dari <strong>Bulma</strong><sup><a>[1]</a></sup>! yang saya ubah suai sendiri.
+      </p>
+    </div>
+  </section>
+  <script>
+      function onload(){
+          if (localStorage.getItem("theme") === "dark"){
+              dark()
+          } else{
+              light()
+          }
+      }
+      function dark(){
+          document.documentElement.setAttribute("data-theme", "dark");
+          localStorage.setItem("theme","dark")
+      }
+      function light(){
+          document.documentElement.setAttribute("data-theme", "light");
+          localStorage.setItem("theme","light")
+      }
+  </script>
+  </body>
+</html>
